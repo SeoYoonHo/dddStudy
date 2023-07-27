@@ -11,7 +11,7 @@ public enum OrderState {
             return true;
         }
     },
-    SHIPPED, DELIVERING, DELIVERY_COMPLETED;
+    SHIPPED, DELIVERING, DELIVERY_COMPLETED, CANCELED;
 
     public boolean isShippingChangeable() {
         return false;

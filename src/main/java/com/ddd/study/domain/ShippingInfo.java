@@ -13,4 +13,6 @@ public class ShippingInfo {
 
     @OneToOne
     private Address address;
+    private String receiverName;
+    private String receiverPhoneNumber;
 }
