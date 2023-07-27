@@ -1,5 +1,7 @@
 package com.ddd.study.domain;
 
+import com.ddd.study.Value.Money;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
@@ -15,7 +17,8 @@ public class OrderLine {
 
     @OneToOne
     private Product product;
-    private int price;
+    @Embedded
+    private Money price;
     private int quantity;
     private int amounts;
 
@@ -23,7 +26,7 @@ public class OrderLine {
 
     }
 
-    public OrderLine(Product product, int price, int quantity) {
+    public OrderLine(Product product, Money price, int quantity) {
         this.product = product;
         this.price = price;
         this.quantity = quantity;
@@ -31,7 +34,7 @@ public class OrderLine {
     }
 
     private int calculateAmounts() {
-        return price * quantity;
+        return price.getValue() * quantity;
     }
 
 }

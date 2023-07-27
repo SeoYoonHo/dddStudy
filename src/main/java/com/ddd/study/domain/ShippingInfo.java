@@ -1,18 +1,21 @@
 package com.ddd.study.domain;
 
+import com.ddd.study.Value.Address;
+import com.ddd.study.Value.Receiver;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Getter @Setter
+@Getter
+@Setter
 public class ShippingInfo {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @Column(name = "shipping_id")
     private Long id;
-
-    @OneToOne
+    @Embedded
     private Address address;
-    private String receiverName;
-    private String receiverPhoneNumber;
+    @Embedded
+    private Receiver receiver;
 }
